@@ -43,7 +43,7 @@ function Footer({ containerFluid, className }) {
       <div className="footer-bottom">
         <Container>
           <div className="footer-bottom__wrapper">
-            <p>Copyright © 2019 Ogami - All Rights Reserved.</p>
+            <p>Copyright © 2024 Weristo - All Rights Reserved by SIC.</p>
             <img
               src={process.env.PUBLIC_URL + "/assets/images/footer/payment.png"}
               alt="Payment methods"
