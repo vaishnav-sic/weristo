@@ -3,10 +3,12 @@ $root-color: (
   pink: #fd5f5c,
   coffee: #f79823,
   light: #eaeff4,
+  primary1: #25064c
 );
 
 $colors: (
-  green: var(--green-color),
+  primary1: var(--primary1-color),
+  green: var(--primary1-color),
   pink: var(--pink-color),
   coffee: var(--coffee-color),
   light: var(--light-color),
