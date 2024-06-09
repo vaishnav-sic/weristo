@@ -43,7 +43,7 @@ function Footer({ containerFluid, className }) {
       <div className="footer-bottom">
         <Container>
           <div className="footer-bottom__wrapper">
-            <p>Copyright © 2024 Weristo - All Rights Reserved by SIC.</p>
+            <p>सर्वहक्कस्वाधीन SIC द्वारे प्रेमपूर्वक विकसित </p>
             <img
               src={process.env.PUBLIC_URL + "/assets/images/footer/payment.png"}
               alt="Payment methods"
