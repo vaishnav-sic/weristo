@@ -46,7 +46,7 @@ function DowOne({ data, countdownLast }) {
                 className="dow-one-image"
                 src={
                   process.env.PUBLIC_URL +
-                  "assets/images/sections/dale-of-week/one/img.png"
+                  "assets/images/sections/dale-of-week/one/img.jpg"
                 }
                 alt="Dale of the week image"
               />

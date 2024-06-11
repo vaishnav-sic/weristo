@@ -2,34 +2,34 @@
   "one": [
     {
       "image": {
-        "background": "F",
+        "background": "S",
         "main": "/assets/images/sections/category/one/1.png"
       },
-      "title": "Fresh fruit",
+      "title": "Sofas",
       "quantity": 12
     },
     {
       "image": {
-        "background": "D",
+        "background": "C",
         "main": "/assets/images/sections/category/one/2.png"
       },
-      "title": "Dried",
+      "title": "Chair",
       "quantity": 8
     },
     {
       "image": {
-        "background": "Y",
+        "background": "D",
         "main": "/assets/images/sections/category/one/3.png"
       },
-      "title": "Vegetables",
+      "title": "Dining Table",
       "quantity": 2
     },
     {
       "image": {
-        "background": "J",
+        "background": "T",
         "main": "/assets/images/sections/category/one/4.png"
       },
-      "title": "Juice",
+      "title": "Table",
       "quantity": 10
     }
   ]

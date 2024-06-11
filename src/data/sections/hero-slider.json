@@ -2,19 +2,19 @@
   "one": [
     {
       "background": "/assets/images/hero-slider/one/bg-1.png",
-      "subTitle": "Fruit Fresh",
-      "title": "Orange Lemon",
+      "subTitle": "Modular Designs",
+      "title": "Interior Furniture",
       "price": {
-        "main": "14",
+        "main": "20000",
         "unit": "pakage"
       }
     },
     {
-      "background": "/assets/images/hero-slider/one/bg-2.png",
-      "subTitle": "Butter & Eggs",
-      "title": "Spice 100% Oganic",
+      "background": "/assets/images/hero-slider/one/bg-1.png",
+      "subTitle": "Dining Chairs & Table",
+      "title": "Modular Kitchen Designs",
       "price": {
-        "main": "16",
+        "main": "16000",
         "unit": "pakage"
       }
     }

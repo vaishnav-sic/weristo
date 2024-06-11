@@ -1,9 +1,9 @@
 [
-  { "name": "bread", "value": "bread" },
-  { "name": "fastfood", "value": "fast-food" },
-  { "name": "fresh meat", "value": "fresh-meat" },
-  { "name": "ocean foods", "value": "ocean-foods" },
-  { "name": "oranges", "value": "oranges" },
-  { "name": "organic drinks", "value": "organic-drinks" },
-  { "name": "vegetables", "value": "vegetables" }
+  { "name": "sofas", "value": "sofas" },
+  { "name": "chair", "value": "chair" },
+  { "name": "recliners", "value": "recliners" },
+  { "name": "ottomans", "value": "ottomans" },
+  { "name": "wardrobe", "value": "wardrobe" },
+  { "name": "tables", "value": "tables" },
+  { "name": "armoires", "value": "armoires" }
 ]
