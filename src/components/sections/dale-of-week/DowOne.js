@@ -29,7 +29,7 @@ function DowOne({ data, countdownLast }) {
   return (
     <div className="dow-one">
       <Container>
-        <SectionTitle title="Deal Of The Week" className="-center" />
+        <SectionTitle title="Why choose us" className="-center" />
         <div className="dow-one-content">
           <Row align="center" gutter={15}>
             <Col md={12} lg={8}>
@@ -44,11 +44,11 @@ function DowOne({ data, countdownLast }) {
             <Col md={0} lg={8}>
               <img
                 className="dow-one-image"
-                src={
+                src={ 
                   process.env.PUBLIC_URL +
-                  "assets/images/sections/dale-of-week/one/img.jpg"
+                  "assets/images/sections/dale-of-week/one/img.jpg" 
                 }
-                alt="Dale of the week image"
+                alt="Dale of the week image" style={{ marginTop: '-4rem' }}
               />
             </Col>
             <Col md={12} lg={8}>
@@ -63,7 +63,7 @@ function DowOne({ data, countdownLast }) {
           </Row>
         </div>
 
-        <Countdown
+        {/* <Countdown
           date={Date.now() + countdownLast}
           renderer={({ days, hours, minutes, seconds }) => {
             return (
@@ -84,7 +84,7 @@ function DowOne({ data, countdownLast }) {
               </div>
             );
           }}
-        />
+        /> */}
       </Container>
     </div>
   );
