@@ -48,6 +48,7 @@ export default function Home() {
             zIndex: 2,
           }}
         />
+        <h1>Hello wordl</h1>
       </Container>
       <CategoriesOne data={categoriesOneData.one} />
       <Container>
