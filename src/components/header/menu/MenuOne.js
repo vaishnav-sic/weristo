@@ -15,8 +15,8 @@ export default function MenuOne() {
           <Link href={process.env.PUBLIC_URL + "/"}>
             <a className="menu-logo">
               <img
-                src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
-                alt="Ogami logo"
+                src={process.env.PUBLIC_URL + "/assets/images/logo.jpeg"}
+                alt="Ogami logo"style={{maxWidth: '150px'}}
               />
             </a>
           </Link>

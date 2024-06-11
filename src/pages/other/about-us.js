@@ -31,16 +31,24 @@ function aboutUs() {
                 <div className="about-story__content">
                   <SectionTitle title="The Story About Us" className="-left" />
                   <p>
-                    Tyna Giang's integrated agro-forestry farming model is the
+                    {/* Tyna Giang's integrated agro-forestry farming model is the
                     first project in Vietnam to achieve the highest ranking in
                     the "100 projects to combat climate change" by the Ministry
-                    of Environment, Energy and Sea. France organized in 2016 ...
+                    of Environment, Energy and Sea. France organized in 2016 ... */}
+                    It Was time to update with the growing market and trends, and we
+                    did so with the utmost efficiency. We have thrived and achieved an
+                    excellent blend of human skills and cutting-edge fabrication
+                    technology, integrating science into traditional design...
                   </p>
                   <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                    {/* Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
                     odit aut fugit. Neque porro quisquam est, sed quia non
                     numquam eius modi tempora incidunt ut labore et dolore
-                    magnam aliquam quaerat voluptatem
+                    magnam aliquam quaerat voluptatem */}
+                    Our innovative modular with a touch of elegance inspired our
+                    clients, and we began emphasizing designing and delivering it to
+                    them. We adapted to the ever-growing demand for modular furniture
+                    with updated machinery and state-of-the-art facilities.
                   </p>
                 </div>
               </Col>
@@ -49,15 +57,16 @@ function aboutUs() {
                   <img
                     src={
                       process.env.PUBLIC_URL +
-                      "/assets/images/pages/contact/video.png"
+                      // "/assets/images/pages/contact/video.png"
+                      "/assets/images/pages/About us 1.png"
                     }
                     alt="introduction image"
                   />
-                  <Button
+                  {/* <Button
                     type="primary"
                     shape="circle"
                     icon={<i className="fas fa-play" />}
-                  />
+                  /> */}
                 </div>
               </Col>
             </Row>

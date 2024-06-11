@@ -4,17 +4,17 @@ import { DownOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
 let categories = [
-  { name: "Fresh Meat", href: "/shop/shop-3-column" },
-  { name: "Vegetables", href: "/shop/shop-3-column" },
-  { name: "Fruit & Nut Gifts", href: "/shop/shop-3-column" },
-  { name: "Fresh Berries", href: "/shop/shop-3-column" },
-  { name: "Ocean Foods", href: "/shop/shop-3-column" },
-  { name: "Butter & Eggs", href: "/shop/shop-3-column" },
-  { name: "Fastfood", href: "/shop/shop-3-column" },
-  { name: "Fresh Onion", href: "/shop/shop-3-column" },
-  { name: "Papayaya & Crisps", href: "/shop/shop-3-column" },
-  { name: "Oatmeal", href: "/shop/shop-3-column" },
-  { name: "Fresh Bananas", href: "/shop/shop-3-column" },
+  { name: "Living Room ", href: "/shop/shop-3-column" },
+  { name: "Bedroom ", href: "/shop/shop-3-column" },
+  { name: "Office ", href: "/shop/shop-3-column" },
+  { name: "Seating ", href: "/shop/shop-3-column" },
+  { name: "Accent ", href: "/shop/shop-3-column" },
+  { name: "Storage", href: "/shop/shop-3-column" },
+  { name: "Outdoor ", href: "/shop/shop-3-column" },
+  { name: "Dining Room ", href: "/shop/shop-3-column" },
+  { name: "Kid's ", href: "/shop/shop-3-column" },
+  { name: "Desks", href: "/shop/shop-3-column" },
+  { name: "Cabinets", href: "/shop/shop-3-column" },
 ];
 
 function CategoryColappse({ active }) {
