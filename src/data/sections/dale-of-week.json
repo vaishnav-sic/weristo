@@ -1,24 +1,24 @@
 {
   "one": [
     {
-      "title": "Eat Healthier",
-      "description": "Modi tempora incidunt ut labore dolore magnam aliquam",
-      "iconSrc": "/assets/images/sections/dale-of-week/one/1.png"
-    },
-    {
-      "title": "We Have Brands",
-      "description": "Modi tempora incidunt ut labore dolore magnam aliquam",
+      "title": "Elegant Designs",
+      "description": "Discover timeless pieces that enhance the beauty of your home.",
       "iconSrc": "/assets/images/sections/dale-of-week/one/2.png"
     },
     {
-      "title": "Fresh And Clean Products",
-      "description": "Modi tempora incidunt ut labore dolore magnam aliquam",
-      "iconSrc": "/assets/images/sections/dale-of-week/one/3.png"
+      "title": "Trusted Brands",
+      "description": "Quality furniture from brands you can rely on for durability and style.",
+      "iconSrc": "/assets/images/sections/dale-of-week/one/2.png"
     },
     {
-      "title": "Modern Process",
-      "description": "Modi tempora incidunt ut labore dolore magnam aliquam",
-      "iconSrc": "/assets/images/sections/dale-of-week/one/4.png"
+      "title": "Sustainable Materials",
+      "description": "Furniture crafted from eco-friendly and sustainable materials.",
+      "iconSrc": "/assets/images/sections/dale-of-week/one/2.png"
+    },
+    {
+      "title": "Innovative Designs",
+      "description": "Modern and functional furniture that meets all your needs.",
+      "iconSrc": "/assets/images/sections/dale-of-week/one/2.png"
     }
   ]
 }
