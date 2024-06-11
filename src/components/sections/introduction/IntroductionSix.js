@@ -8,22 +8,30 @@ const data = [
   {
     name: "Katie Harrison",
     job: "Barber",
-    image: "/assets/images/sections/introduction/six/1.png",
+  //   image: "/assets/images/sections/introduction/six/1.png",
+  image: "/assets/images/sections/introduction/six/team 1.png"
   },
   {
     name: "John Harrison",
     job: "Sercurity",
-    image: "/assets/images/sections/introduction/six/2.png",
+    // image: "/assets/images/sections/introduction/six/2.png",
+    image: "/assets/images/sections/introduction/six/team 2.png"
+
+
   },
   {
     name: "Katie Perry",
     job: "Worker",
-    image: "/assets/images/sections/introduction/six/3.png",
+    // image: "/assets/images/sections/introduction/six/3.png",
+    image: "/assets/images/sections/introduction/six/team 3.png"
+
   },
   {
     name: "Max Rashford",
     job: "Barber",
-    image: "/assets/images/sections/introduction/six/1.png",
+    // image: "/assets/images/sections/introduction/six/1.png",
+    image: "/assets/images/sections/introduction/six/team 4.png"
+
   },
 ];
 
@@ -31,7 +39,7 @@ const IntroductionSix = () => {
   return (
     <div className="introduction-six">
       <Container>
-        <SectionTitle title="We are farmer" className="-center" />
+        <SectionTitle title="Our Team" className="-center" />
         <div className="introduction-six-content">
           <Row gutter={[30, 30]}>
             {data.map((item) => (

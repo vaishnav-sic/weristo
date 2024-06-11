@@ -13,7 +13,8 @@ const IntroductionFive = ({ data }) => {
               <img
                 src={
                   process.env.PUBLIC_URL +
-                  "/assets/images/sections/introduction/five/1.png"
+                  // "/assets/images/sections/introduction/five/1.png"
+                  "/assets/images/sections/introduction/five/about 2.png"
                 }
                 alt="Dale of the week icon"
               />
