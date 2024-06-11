@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   Form,
   Input,
@@ -21,19 +21,74 @@ import ShopOrderStep from "../../components/shop/ShopOrderStep";
 import PartnerOne from "../../components/sections/partners/PartnerOne";
 import FetchDataHandle from "../../components/other/FetchDataHandle";
 
-function checkout() {
+function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const router = useRouter();
-  const cartState = useSelector((state) => state.cartReducer);
+
+  // Dummy data
+  const dummyCartData = [
+    {
+      id: 1,
+      coverImage: "/images/product1.jpg",
+      name: "Product 1",
+      price: 100,
+      quantity: 10,
+      cartQuantity: 1,
+    },
+    {
+      id: 2,
+      coverImage: "/images/product2.jpg",
+      name: "Product 2",
+      price: 200,
+      quantity: 5,
+      cartQuantity: 2,
+    },
+    {
+      id: 3,
+      coverImage: "/images/product3.jpg",
+      name: "Product 3",
+      price: 300,
+      quantity: 15,
+      cartQuantity: 3,
+    },
+    {
+      id: 4,
+      coverImage: "/images/product4.jpg",
+      name: "Product 4",
+      price: 400,
+      quantity: 8,
+      cartQuantity: 1,
+    },
+    {
+      id: 5,
+      coverImage: "/images/product5.jpg",
+      name: "Product 5",
+      price: 150,
+      quantity: 12,
+      cartQuantity: 2,
+    },
+    {
+      id: 6,
+      coverImage: "/images/product6.jpg",
+      name: "Product 6",
+      price: 250,
+      quantity: 20,
+      cartQuantity: 1,
+    },
+  ];
+
   const onFinish = (values) => {
     router.push("/shop/order-complete");
   };
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   const onChoosePaymentMethod = (e) => {
     setPaymentMethod(e.target.value);
   };
+
   return (
     <LayoutOne title="Checkout">
       <Container>
@@ -48,7 +103,7 @@ function checkout() {
         <ShopOrderStep current={2} />
         <FetchDataHandle
           emptyDescription="No product in cart"
-          data={cartState}
+          data={dummyCartData}
           renderData={(data) => (
             <div className="checkout">
               <Row gutter={50}>
@@ -60,8 +115,7 @@ function checkout() {
                       layout="vertical"
                       onFinish={onFinish}
                       onFinishFailed={onFinishFailed}
-                      id="checkout-form"
-                    >
+                      id="checkout-form">
                       <Row gutter={15}>
                         <Col xs={24} sm={12}>
                           <Form.Item
@@ -72,8 +126,7 @@ function checkout() {
                                 required: true,
                                 message: "Please input your first name!",
                               },
-                            ]}
-                          >
+                            ]}>
                             <Input />
                           </Form.Item>
                         </Col>
@@ -86,16 +139,14 @@ function checkout() {
                                 required: true,
                                 message: "Please input your last name!",
                               },
-                            ]}
-                          >
+                            ]}>
                             <Input />
                           </Form.Item>
                         </Col>
                         <Col span={24}>
                           <Form.Item
                             label="Company name (optional)"
-                            name="company"
-                          >
+                            name="company">
                             <Input />
                           </Form.Item>
                         </Col>
@@ -108,14 +159,13 @@ function checkout() {
                                 required: true,
                                 message: "Please choose your country!",
                               },
-                            ]}
-                          >
+                            ]}>
                             <Select defaultValue="vietnam">
                               <Select.Option value="vietnam">
-                                vietnam
+                                Vietnam
                               </Select.Option>
                               <Select.Option value="usa">USA</Select.Option>
-                              <Select.Option value="japan">japan</Select.Option>
+                              <Select.Option value="japan">Japan</Select.Option>
                             </Select>
                           </Form.Item>
                         </Col>
@@ -126,18 +176,16 @@ function checkout() {
                             rules={[
                               {
                                 required: true,
-                                message: "Please input your street addres!",
+                                message: "Please input your street address!",
                               },
-                            ]}
-                          >
+                            ]}>
                             <Input />
                           </Form.Item>
                         </Col>
                         <Col span={24}>
                           <Form.Item
                             label="Postcode / ZIP (optional)"
-                            name="zip"
-                          >
+                            name="zip">
                             <Input />
                           </Form.Item>
                         </Col>
@@ -150,8 +198,7 @@ function checkout() {
                                 required: true,
                                 message: "Please input your Town/City!",
                               },
-                            ]}
-                          >
+                            ]}>
                             <Input />
                           </Form.Item>
                         </Col>
@@ -164,8 +211,7 @@ function checkout() {
                                 required: true,
                                 message: "Please input your phone!",
                               },
-                            ]}
-                          >
+                            ]}>
                             <Input />
                           </Form.Item>
                         </Col>
@@ -178,8 +224,7 @@ function checkout() {
                                 required: true,
                                 message: "Please input your email address!",
                               },
-                            ]}
-                          >
+                            ]}>
                             <Input />
                           </Form.Item>
                         </Col>
@@ -229,9 +274,8 @@ function checkout() {
                         <tr>
                           <th>Total</th>
                           <td
-                            style={{ fontSize: 20 / 16 + "em" }}
-                            className="-bold -color"
-                          >
+                            style={{ fontSize: "1.25em" }}
+                            className="-bold -color">
                             {formatCurrency(calculateTotalPrice(data))}
                           </td>
                         </tr>
@@ -240,8 +284,7 @@ function checkout() {
                     <div className="checkout-total__footer">
                       <Radio.Group
                         onChange={onChoosePaymentMethod}
-                        value={paymentMethod}
-                      >
+                        value={paymentMethod}>
                         <Radio style={{ display: "block" }} value="cod">
                           Cash on delivery
                         </Radio>
@@ -251,13 +294,12 @@ function checkout() {
                       </Radio.Group>
                     </div>
                     <Button
-                      className="checkout-sumbit"
+                      className="checkout-submit"
                       type="primary"
                       shape="round"
                       form="checkout-form"
                       key="submit"
-                      htmlType="submit"
-                    >
+                      htmlType="submit">
                       <a>Place order</a>
                     </Button>
                   </div>
@@ -272,4 +314,4 @@ function checkout() {
   );
 }
 
-export default React.memo(checkout);
+export default React.memo(Checkout);
