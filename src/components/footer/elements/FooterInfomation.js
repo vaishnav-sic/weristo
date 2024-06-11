@@ -9,8 +9,8 @@ export default function FooterInfomation() {
       <Link href={process.env.PUBLIC_URL + "/"}>
         <a className="footer-info__logo">
           <img
-            src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
-            alt="Ogami Logo"
+            src={process.env.PUBLIC_URL + "/assets/images/logo.jpeg"}
+            alt="Ogami Logo"style={{maxWidth: '150px'}}
           />
         </a>
       </Link>
