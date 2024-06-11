@@ -49,6 +49,7 @@ export default function Home() {
           }}
         />
       </Container>
+      <h1>test</h1>
       <CategoriesOne data={categoriesOneData.one} />
       <Container>
         <ProductTab
