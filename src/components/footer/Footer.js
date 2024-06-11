@@ -43,7 +43,13 @@ function Footer({ containerFluid, className }) {
       <div className="footer-bottom">
         <Container>
           <div className="footer-bottom__wrapper">
-            <p>सर्वहक्कस्वाधीन SIC द्वारे प्रेमपूर्वक विकसित </p>
+            <div className="SIC-image">
+            <p>सर्वहक्कस्वाधीन 2024
+            <a href="https://www.swasamvedya.com/" target="_blank">
+            <img src="/assets/images/footer/SIC_logo.png" alt="Logo" />
+            </ a> द्वारे प्रेमपूर्वक विकसित </p>
+            </div>
+
             <img
               src={process.env.PUBLIC_URL + "/assets/images/footer/payment.png"}
               alt="Payment methods"

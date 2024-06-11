@@ -24,7 +24,7 @@ export default function TopNavOne({ containerFluid }) {
               </li>
               <li>
                 <i className="fas fa-phone-alt" />
-                +65 11.188.888
+                +91 7777777777
               </li>
             </ul>
           </div>

@@ -15,8 +15,8 @@ export default function FooterInfomation() {
         </a>
       </Link>
       <ul>
-        <li>Address: 60-49 Road 11378 New York</li>
-        <li>Phone: +65 11.188.888</li>
+        <li>Address: 123 MG Road Pune</li>
+        <li>Phone: +91 7777777777</li>
         <li>Email: info.deercreative@gmail.com</li>
       </ul>
       <SocialIcons type="primary" shape="circle" className="-btn-light" />
