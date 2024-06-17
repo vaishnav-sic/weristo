@@ -1,0 +1,167 @@
+/* StepFour.css */
+
+.stepfour-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(5, 109, 255, 0.75);  */
+  max-width: 90%;
+  margin: auto;
+  /* padding: 16px; */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+}
+
+.stepfour-container {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  /* padding: 16px; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;}
+
+.stepfour-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.stepfour-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.stepfour-cost {
+  font-size: 0.875rem;
+}
+
+.stepfour-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.stepfour-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* background-color: rebeccapurple; */
+}
+
+.stepfour-item-image {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 16px;
+}
+
+.stepfour-placeholder-text {
+  text-align: center;
+}
+
+.stepfour-thumbnails {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepfour-scroll-button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.stepfour-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stepfour-step {
+  font-size: 0.875rem;
+}
+
+.stepfour-description {
+  width: 100%;
+  /* height: 140%; */
+}
+
+.stepfour-description-textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.stepfour-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.stepfour-navigation {
+  display: flex;
+  gap: 8px;
+}
+
+.stepfour-nav-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.stepfour-back-button {
+  background-color: #d1d5db;
+  color: black;
+}
+
+.stepfour-next-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .stepfour-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepfour-container {
+    max-width: 100%;
+  }
+
+  .stepfour-title {
+    font-size: 1rem;
+  }
+
+  .stepfour-nav-button {
+    padding: 6px 12px;
+  }
+}

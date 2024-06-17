@@ -1,0 +1,155 @@
+/* Widget.css */
+
+.widget-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(5, 109, 255, 0.75);  */
+  max-width: 90%;
+  margin: auto;
+  /* padding: 16px; */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+}
+
+.widget-container {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  /* padding: 16px; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.widget-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+}
+
+.widget-cost {
+  font-size: 0.875rem; /* text-sm */
+}
+
+.widget-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.widget-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* space-y-4 */
+}
+
+.widget-item {
+  width: 100%;
+}
+
+.widget-item-title {
+  font-weight: 600;
+}
+
+.widget-item-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.widget-item-button {
+  padding: 0 8px;
+}
+
+.widget-item-image {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.widget-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.widget-step {
+  font-size: 0.875rem; /* text-sm */
+}
+
+.widget-navigation {
+  display: flex;
+  gap: 8px; /* space-x-2 */
+}
+
+.widget-nav-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.widget-back-button {
+  background-color: #d1d5db; /* bg-zinc-300 */
+  color: black;
+}
+
+.widget-next-button {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: white;
+}
+
+.widget-description {
+  margin-top: 16px;
+}
+
+.widget-description-label {
+  display: block;
+  font-weight: 600;
+}
+
+.widget-description-textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .widget-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .widget-container {
+    max-width: 100%;
+  }
+
+  .widget-title {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .widget-nav-button {
+    padding: 6px 12px; /* Adjust padding for smaller screens */
+  }
+}
