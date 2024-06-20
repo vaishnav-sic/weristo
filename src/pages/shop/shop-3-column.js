@@ -2,7 +2,7 @@
 // import { useDispatch, useSelector } from "react-redux";
 // import { Col, Row, Pagination, Breadcrumb } from "antd";
 // import { useRouter } from "next/router";
- 
+
 // import {
 //   fetchProductsRequest,
 //   fetchFeaturedProductsRequest,
@@ -12,7 +12,7 @@
 // import ShopSidebar from "../../components/shop/ShopSidebar";
 // import ProductGrid from "../../components/sections/product-thumb/ProductGrid";
 // import ShopHeader from "../../components/shop/ShopHeader";
- 
+
 // function shopGrid3Column() {
 //   const dispatch = useDispatch();
 //   const router = useRouter();
@@ -88,14 +88,14 @@
 //     </LayoutOne>
 //   );
 // }
- 
+
 // export default React.memo(shopGrid3Column);
 //////////////////////////////////////////////
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatCurrency } from "../../common/utils";
-import '../components/cssFiles/StepOne.css';
-import StepTwo from '../components/StepTwo.jsx' ; 
+import "../components/cssFiles/StepOne.css";
+import StepTwo from "../components/StepTwo.jsx";
 // import Box from "@mui/material/Box";
 // import Stepper from "@mui/material/Stepper";
 // import Step from "@mui/material/Step";
@@ -114,7 +114,7 @@ import {
 } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
- 
+
 import {
   fetchProductsRequest,
   fetchFeaturedProductsRequest,
@@ -123,7 +123,11 @@ import LayoutOne from "../../components/layout/LayoutOne";
 import Container from "../../components/other/Container";
 import ShopSidebar from "../../components/shop/ShopSidebar";
 import ShopHeader from "../../components/shop/ShopHeader";
- 
+import { makeStyles } from "@material-ui/core/styles";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Typography from "@material-ui/core/Typography";
 
 const dummyProducts = [
   {
@@ -217,7 +221,7 @@ const dummyProducts = [
     returnPolicy: "30 days return",
   },
 ];
- 
+
 function ShopGrid3Column() {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -230,11 +234,11 @@ function ShopGrid3Column() {
   const shopState = useSelector((state) => state.shopReducer);
   const shopFilterState = useSelector((state) => state.shopFilterReducer);
   const { sort, show, view, category, color, size, tag } = shopFilterState;
- 
+
   useEffect(() => {
     dispatch(fetchFeaturedProductsRequest({ limit: 4 }));
   }, []);
- 
+
   useEffect(() => {
     dispatch(
       fetchProductsRequest({
@@ -251,11 +255,11 @@ function ShopGrid3Column() {
       })
     );
   }, [shopFilterState, currentPage, q]);
- 
+
   const onPaginationChange = (current) => {
     setCurrentPage(current);
   };
- 
+
   const showModal = (product) => {
     setSelectedProduct(product);
     setQuantity(1);
@@ -270,7 +274,7 @@ function ShopGrid3Column() {
 
   const showModal2 = () => {
     setModalVisible(true);
-};
+  };
 
   const handleCancel = () => {
     setModalVisible(false);
@@ -279,30 +283,273 @@ function ShopGrid3Column() {
   const handleClose = () => {
     setIsOpen(false);
   };
-const handleNext = () => {
-  // setStep(step + 1); // Move to the next step
 
-};
-
-const handleBack = () => {
-  setStep(step - 1); // Move back to the previous step
-};
- 
   const handleSimilarProductClick = (product) => {
     setSelectedProduct(product);
     setQuantity(1);
   };
- 
+
   const incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
- 
+
   const decrementQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
- 
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: "100%",
+    },
+    button: {
+      marginRight: theme.spacing(1),
+    },
+    instructions: {
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
+    },
+  }));
+
+  function getSteps() {
+    return ["Select campaign settings", "Create an ad group", "Create an ad"];
+  }
+
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      case 1:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return "Unknown step";
+    }
+  }
+
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [skipped, setSkipped] = React.useState(new Set());
+  const steps = getSteps();
+
+  const isStepOptional = (step) => {
+    return step === 1;
+  };
+
+  const isStepSkipped = (step) => {
+    return skipped.has(step);
+  };
+
+  const handleNext = () => {
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSkip = () => {
+    if (!isStepOptional(activeStep)) {
+      // You probably want to guard against something like this,
+      // it should never occur unless someone's actively trying to break something.
+      throw new Error("You can't skip a step that isn't optional.");
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped((prevSkipped) => {
+      const newSkipped = new Set(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
   return (
     <LayoutOne title="Shop grid fullwidth">
       <Container>
@@ -319,6 +566,7 @@ const handleBack = () => {
               <Col xs={24} lg={6}>
                 <ShopSidebar style={{ marginTop: 10 / 16 + "em" }} />
               </Col>
+
               <Col xs={24} lg={18}>
                 <ShopHeader title="Shop grid fullwidth" />
                 <Row gutter={16}>
@@ -365,165 +613,77 @@ const handleBack = () => {
             <Button key="back" onClick={handleCancel}>
               Closes
             </Button>,
-            <Button key="submit" type="primary">
-            </Button>,
+            <Button key="submit" type="primary"></Button>,
           ]}
           width={1200}
         >
-
-
-
-
-
-
-
-  return (
-    
-
-
-
-
-           <div className="stepone-overlay">
-            <div className="stepone-container">
-              <div className="stepone-header">
-                <h2 className="stepone-title">
-                  Select Carcass
-                  <br /> (Material, Thickness & Grade)
-                </h2>
-                <span className="stepone-cost">
-                  Real time Cost: <span id="real-time-cost">1,00,000</span>
-                </span>
-                <button className="stepone-close-button" onClick={handleClose}>
-                  ✖
-                </button>
-              </div>
-              <div className="stepone-image-section">
-                <div className="stepone-product-image">
-                  <span className="stepone-placeholder-text">
-                    Product Image 360D view
-                    <br />
-                    Select Product Carcass Option
-                  </span>
+          <div className={classes.root}>
+            <Stepper activeStep={activeStep}>
+              {steps.map((label, index) => {
+                const stepProps = {};
+                const labelProps = {};
+                if (isStepOptional(index)) {
+                  labelProps.optional = (
+                    <Typography variant="caption">Optional</Typography>
+                  );
+                }
+                if (isStepSkipped(index)) {
+                  stepProps.completed = false;
+                }
+                return (
+                  <Step key={label} {...stepProps}>
+                    <StepLabel {...labelProps}>{label}</StepLabel>
+                  </Step>
+                );
+              })}
+            </Stepper>
+            <div>
+              {activeStep === steps.length ? (
+                <div>
+                  <Typography className={classes.instructions}>
+                    All steps completed - you&apos;re finished
+                  </Typography>
+                  <Button onClick={handleReset} className={classes.button}>
+                    Reset
+                  </Button>
                 </div>
-                <div className="stepone-thumbnails">
-                  {[...Array(9)].map((_, index) => (
-                    <img
-                      key={index}
-                      src="https://placehold.co/50x50"
-                      alt="Thumb Image"
-                    />
-                  ))}
-                  <button className="stepone-scroll-button">{">"}</button>
+              ) : (
+                <div>
+                  <Typography className={classes.instructions}>
+                    {getStepContent(activeStep)}
+                  </Typography>
+                  <div>
+                    <Button
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      className={classes.button}
+                    >
+                      Back
+                    </Button>
+                    {isStepOptional(activeStep) && (
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleSkip}
+                        className={classes.button}
+                      >
+                        Skip
+                      </Button>
+                    )}
+
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-              <div className="stepone-step-info">
-                <div className="stepone-step">Step 1 of 5</div>
-                <textarea
-                  className="stepone-description"
-                  placeholder="Product Description"
-                  readOnly
-                ></textarea>
-              </div>
-              <div className="stepone-navigation">
-                <button
-                  className="stepone-nav-button stepone-back-button"
-                  onClick={handleBack}
-                >
-                  Back
-                </button>
-                <button
-                  className="stepone-nav-button stepone-next-button"
-                  onClick = {showModal2}>
-                  Step 2
-                </button>
-              </div>
+              )}
             </div>
           </div>
-
-          {/* ------------------------------------------------------------------------------------------------- */}
-          {/* <div className="modal-content">
-            <div className="modal-main">
-              <div className="modal-image">
-                <img src={selectedProduct.image} alt={selectedProduct.name} />
-              </div>
-              <div className="modal-details">
-                <h3>{selectedProduct.name}</h3>
-                <p>
-                  Price: {formatCurrency}
-                  {selectedProduct.price}{" "}
-                  {selectedProduct.discount && (
-                    <span>
-                      (Discount: {selectedProduct.discount}% off, New Price:{" "}
-                      {formatCurrency}
-                      {(
-                        selectedProduct.price *
-                        (1 - selectedProduct.discount / 100)
-                      ).toFixed(2)}
-                      )
-                    </span>
-                  )}
-                </p>
-                <p>Availability: {selectedProduct.availability}</p>
-                <Rate disabled defaultValue={selectedProduct.rating} />
-                <p>EMI options available</p>
-                <div className="quantity-controls">
-                  <Button
-                    icon={<MinusOutlined />}
-                    onClick={decrementQuantity}
-                  />
-                  <InputNumber min={1} value={quantity} readOnly />
-                  <Button icon={<PlusOutlined />} onClick={incrementQuantity} />
-                </div>
-                <Button type="primary" style={{ marginTop: "10px" }}>
-                  Add to Cart
-                </Button>
-                <h4>Description</h4>
-                <p>{selectedProduct.description}</p>
-                <h4>Key Features</h4>
-                <ul>
-                  {selectedProduct.keyFeatures.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-                <h4>Dimensions</h4>
-                <p>{selectedProduct.dimensions}</p>
-                <h4>Maintenance</h4>
-                <p>{selectedProduct.maintenance}</p>
-                <h4>Warranty Summary</h4>
-                <p>{selectedProduct.warranty}</p>
-                <h4>Return Policy</h4>
-                <p>{selectedProduct.returnPolicy}</p>
-              </div>
-            </div>
-            <div className="similar-products">
-              <h4>Similar Products</h4>
-              <Row gutter={16}>
-                {dummyProducts
-                  .filter((product) => product.id !== selectedProduct.id)
-                  .map((product) => (
-                    <Col
-                      key={product.id}
-                      xs={12}
-                      sm={12}
-                      md={8}
-                      lg={8}
-                      onClick={() => handleSimilarProductClick(product)}>
-                      <div className="product">
-                        <img src={product.image} alt={product.name} />
-                        <div className="product-details">
-                          <h3>{product.name}</h3>
-                          <p>
-                            Price: {formatCurrency}
-                            {product.price}
-                          </p>
-                          <Rate disabled defaultValue={product.rating} />
-                        </div>
-                      </div>
-                    </Col>
-                  ))}
-              </Row>
-            </div>
-          </div> */}
         </Modal>
       )}
       <style jsx>{`
@@ -704,7 +864,7 @@ const handleBack = () => {
         .stepone-thumbnails {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 2rem;
         }
 
         .stepone-thumbnails img {
@@ -957,6 +1117,5 @@ const handleBack = () => {
     </LayoutOne>
   );
 }
- 
+
 export default React.memo(ShopGrid3Column);
- 
