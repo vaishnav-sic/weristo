@@ -2,7 +2,7 @@
 // import { useDispatch, useSelector } from "react-redux";
 // import { Col, Row, Pagination, Breadcrumb } from "antd";
 // import { useRouter } from "next/router";
- 
+
 // import {
 //   fetchProductsRequest,
 //   fetchFeaturedProductsRequest,
@@ -12,7 +12,7 @@
 // import ShopSidebar from "../../components/shop/ShopSidebar";
 // import ProductGrid from "../../components/sections/product-thumb/ProductGrid";
 // import ShopHeader from "../../components/shop/ShopHeader";
- 
+
 // function shopGrid3Column() {
 //   const dispatch = useDispatch();
 //   const router = useRouter();
@@ -88,13 +88,20 @@
 //     </LayoutOne>
 //   );
 // }
- 
+
 // export default React.memo(shopGrid3Column);
 //////////////////////////////////////////////
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatCurrency } from "../../common/utils";
- 
+import "../components/cssFiles/StepOne.css";
+import StepTwo from "../components/StepTwo.jsx";
+// import Box from "@mui/material/Box";
+// import Stepper from "@mui/material/Stepper";
+// import Step from "@mui/material/Step";
+// import StepLabel from "@mui/material/StepLabel";
+// import Typography from "@mui/material/Typography";
+
 import {
   Col,
   Row,
@@ -107,7 +114,7 @@ import {
 } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
- 
+
 import {
   fetchProductsRequest,
   fetchFeaturedProductsRequest,
@@ -116,7 +123,12 @@ import LayoutOne from "../../components/layout/LayoutOne";
 import Container from "../../components/other/Container";
 import ShopSidebar from "../../components/shop/ShopSidebar";
 import ShopHeader from "../../components/shop/ShopHeader";
- 
+import { makeStyles } from "@material-ui/core/styles";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Typography from "@material-ui/core/Typography";
+
 const dummyProducts = [
   {
     id: 1,
@@ -209,23 +221,24 @@ const dummyProducts = [
     returnPolicy: "30 days return",
   },
 ];
- 
+
 function ShopGrid3Column() {
   const dispatch = useDispatch();
   const router = useRouter();
   const { q } = router.query;
   const [currentPage, setCurrentPage] = useState(1);
   const [modalVisible, setModalVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const shopState = useSelector((state) => state.shopReducer);
   const shopFilterState = useSelector((state) => state.shopFilterReducer);
   const { sort, show, view, category, color, size, tag } = shopFilterState;
- 
+
   useEffect(() => {
     dispatch(fetchFeaturedProductsRequest({ limit: 4 }));
   }, []);
- 
+
   useEffect(() => {
     dispatch(
       fetchProductsRequest({
@@ -242,36 +255,301 @@ function ShopGrid3Column() {
       })
     );
   }, [shopFilterState, currentPage, q]);
- 
+
   const onPaginationChange = (current) => {
     setCurrentPage(current);
   };
- 
+
   const showModal = (product) => {
     setSelectedProduct(product);
     setQuantity(1);
     setModalVisible(true);
   };
- 
+
+  const showModal1 = (product) => {
+    setSelectedProduct(product);
+    setQuantity(1);
+    setModalVisible(true);
+  };
+
+  const showModal2 = () => {
+    setModalVisible(true);
+  };
+
   const handleCancel = () => {
     setModalVisible(false);
   };
- 
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   const handleSimilarProductClick = (product) => {
     setSelectedProduct(product);
     setQuantity(1);
   };
- 
+
   const incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
- 
+
   const decrementQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
- 
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: "100%",
+    },
+    button: {
+      marginRight: theme.spacing(1),
+    },
+    instructions: {
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
+    },
+  }));
+
+  function getSteps() {
+    return ["Select campaign settings", "Create an ad group", "Create an ad"];
+  }
+
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      case 1:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="stepone-overlay">
+            <div className="stepone-container">
+              <div className="stepone-header">
+                <h2 className="stepone-title">
+                  Select Carcass
+                  <br /> (Material, Thickness & Grade)
+                </h2>
+                <span className="stepone-cost">
+                  Real time Cost: <span id="real-time-cost">1,00,000</span>
+                </span>
+                <button className="stepone-close-button" onClick={handleClose}>
+                  ✖
+                </button>
+              </div>
+              <div className="stepone-image-section">
+                <div className="stepone-product-image">
+                  <span className="stepone-placeholder-text">
+                    Product Image 360D view
+                    <br />
+                    Select Product Carcass Option
+                  </span>
+                </div>
+                <div className="stepone-thumbnails">
+                  {[...Array(9)].map((_, index) => (
+                    <img
+                      key={index}
+                      src="https://placehold.co/50x50"
+                      alt="Thumb Image"
+                    />
+                  ))}
+                  <button className="stepone-scroll-button">{">"}</button>
+                </div>
+              </div>
+              <div className="stepone-step-info">
+                <textarea
+                  className="stepone-description"
+                  placeholder="Product Description"
+                  readOnly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return "Unknown step";
+    }
+  }
+
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [skipped, setSkipped] = React.useState(new Set());
+  const steps = getSteps();
+
+  const isStepOptional = (step) => {
+    return step === 1;
+  };
+
+  const isStepSkipped = (step) => {
+    return skipped.has(step);
+  };
+
+  const handleNext = () => {
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSkip = () => {
+    if (!isStepOptional(activeStep)) {
+      // You probably want to guard against something like this,
+      // it should never occur unless someone's actively trying to break something.
+      throw new Error("You can't skip a step that isn't optional.");
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped((prevSkipped) => {
+      const newSkipped = new Set(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
   return (
     <LayoutOne title="Shop grid fullwidth">
       <Container>
@@ -288,23 +566,25 @@ function ShopGrid3Column() {
               <Col xs={24} lg={6}>
                 <ShopSidebar style={{ marginTop: 10 / 16 + "em" }} />
               </Col>
+
               <Col xs={24} lg={18}>
                 <ShopHeader title="Shop grid fullwidth" />
                 <Row gutter={16}>
                   {dummyProducts.map((product) => (
                     <Col key={product.id} xs={12} sm={12} md={8} lg={8}>
-                      <div
-                        className="product"
-                        id="product"
-                        onClick={() => showModal(product)}>
+                      <div className="product" id="product">
                         <img src={product.image} alt={product.name} />
                         <div className="product-details">
                           <h3>{product.name}</h3>
                           <p>Price:{formatCurrency(product.price)}</p>
                           <p>Availability: {product.availability}</p>
                           <Rate disabled defaultValue={product.rating} />
-                          <Button type="primary" style={{ marginTop: "10px" }}>
-                            IMD
+                          <Button
+                            type="primary"
+                            onClick={() => showModal1(product)}
+                            style={{ marginTop: "10px" }}
+                          >
+                            IMDE
                           </Button>
                         </div>
                       </div>
@@ -331,94 +611,77 @@ function ShopGrid3Column() {
           onCancel={handleCancel}
           footer={[
             <Button key="back" onClick={handleCancel}>
-              Close
+              Closes
             </Button>,
-            <Button key="submit" type="primary">
-              Add to Cart
-            </Button>,
+            <Button key="submit" type="primary"></Button>,
           ]}
-          width={1200}>
-          <div className="modal-content">
-            <div className="modal-main">
-              <div className="modal-image">
-                <img src={selectedProduct.image} alt={selectedProduct.name} />
-              </div>
-              <div className="modal-details">
-                <h3>{selectedProduct.name}</h3>
-                <p>
-                  Price: {formatCurrency}
-                  {selectedProduct.price}{" "}
-                  {selectedProduct.discount && (
-                    <span>
-                      (Discount: {selectedProduct.discount}% off, New Price:{" "}
-                      {formatCurrency}
-                      {(
-                        selectedProduct.price *
-                        (1 - selectedProduct.discount / 100)
-                      ).toFixed(2)}
-                      )
-                    </span>
-                  )}
-                </p>
-                <p>Availability: {selectedProduct.availability}</p>
-                <Rate disabled defaultValue={selectedProduct.rating} />
-                <p>EMI options available</p>
-                <div className="quantity-controls">
-                  <Button
-                    icon={<MinusOutlined />}
-                    onClick={decrementQuantity}
-                  />
-                  <InputNumber min={1} value={quantity} readOnly />
-                  <Button icon={<PlusOutlined />} onClick={incrementQuantity} />
+          width={1200}
+        >
+          <div className={classes.root}>
+            <Stepper activeStep={activeStep}>
+              {steps.map((label, index) => {
+                const stepProps = {};
+                const labelProps = {};
+                if (isStepOptional(index)) {
+                  labelProps.optional = (
+                    <Typography variant="caption">Optional</Typography>
+                  );
+                }
+                if (isStepSkipped(index)) {
+                  stepProps.completed = false;
+                }
+                return (
+                  <Step key={label} {...stepProps}>
+                    <StepLabel {...labelProps}>{label}</StepLabel>
+                  </Step>
+                );
+              })}
+            </Stepper>
+            <div>
+              {activeStep === steps.length ? (
+                <div>
+                  <Typography className={classes.instructions}>
+                    All steps completed - you&apos;re finished
+                  </Typography>
+                  <Button onClick={handleReset} className={classes.button}>
+                    Reset
+                  </Button>
                 </div>
-                <Button type="primary" style={{ marginTop: "10px" }}>
-                  Add to Cart
-                </Button>
-                <h4>Description</h4>
-                <p>{selectedProduct.description}</p>
-                <h4>Key Features</h4>
-                <ul>
-                  {selectedProduct.keyFeatures.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-                <h4>Dimensions</h4>
-                <p>{selectedProduct.dimensions}</p>
-                <h4>Maintenance</h4>
-                <p>{selectedProduct.maintenance}</p>
-                <h4>Warranty Summary</h4>
-                <p>{selectedProduct.warranty}</p>
-                <h4>Return Policy</h4>
-                <p>{selectedProduct.returnPolicy}</p>
-              </div>
-            </div>
-            <div className="similar-products">
-              <h4>Similar Products</h4>
-              <Row gutter={16}>
-                {dummyProducts
-                  .filter((product) => product.id !== selectedProduct.id)
-                  .map((product) => (
-                    <Col
-                      key={product.id}
-                      xs={12}
-                      sm={12}
-                      md={8}
-                      lg={8}
-                      onClick={() => handleSimilarProductClick(product)}>
-                      <div className="product">
-                        <img src={product.image} alt={product.name} />
-                        <div className="product-details">
-                          <h3>{product.name}</h3>
-                          <p>
-                            Price: {formatCurrency}
-                            {product.price}
-                          </p>
-                          <Rate disabled defaultValue={product.rating} />
-                        </div>
-                      </div>
-                    </Col>
-                  ))}
-              </Row>
+              ) : (
+                <div>
+                  <Typography className={classes.instructions}>
+                    {getStepContent(activeStep)}
+                  </Typography>
+                  <div>
+                    <Button
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      className={classes.button}
+                    >
+                      Back
+                    </Button>
+                    {isStepOptional(activeStep) && (
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleSkip}
+                        className={classes.button}
+                      >
+                        Skip
+                      </Button>
+                    )}
+
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                    </Button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </Modal>
@@ -434,17 +697,17 @@ function ShopGrid3Column() {
           cursor: pointer;
           transition: transform 0.3s;
         }
- 
+
         .product:hover {
           transform: scale(1.05);
         }
- 
+
         .product img {
           max-width: 100%;
           height: auto;
           transition: transform 0.3s;
         }
- 
+
         .product-details {
           position: absolute;
           top: 0;
@@ -459,70 +722,400 @@ function ShopGrid3Column() {
           opacity: 0.5;
           transition: opacity 0.3s;
         }
- 
+
         .product:hover .product-details {
           opacity: 1;
         }
- 
+
         .product-details h3,
         .product-details p,
         .product-details .ant-rate {
           margin: 10px 0;
         }
- 
+
         .modal-content {
           display: flex;
           flex-direction: column;
           width: 100%;
         }
- 
+
         .modal-main {
           display: flex;
           width: 100%;
           margin-bottom: 16px;
         }
- 
+
         .modal-details {
           flex: 2;
           padding-left: 16px;
         }
- 
+
         .modal-image {
           flex: 1.5;
           text-align: center;
         }
- 
+
         .modal-image img {
           max-width: 100%;
           transition: transform 0.3s;
         }
- 
+
         .modal-image img:hover {
           transform: scale(1.2);
         }
- 
+
         .quantity-controls {
           display: flex;
           align-items: center;
           margin: 16px 0;
         }
- 
+
         .quantity-controls .ant-btn {
           margin: 0 8px;
         }
- 
+
         .similar-products {
           width: 100%;
           padding: 16px 0;
         }
- 
+
         .similar-products h4 {
           margin-top: 16px;
+        }
+
+        /* StepOne.css */
+
+        .stepone-overlay {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* background-color: rgba(5, 109, 255, 0.75);  */
+          max-width: 90%;
+          margin: auto;
+          /* padding: 16px; */
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+        }
+
+        .stepone-container {
+          /* position: relative; */
+          background-color: white;
+          color: black;
+          width: 100%;
+          max-width: 100%;
+          /* padding: 16px; */
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+
+        .stepone-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 8px;
+          margin-bottom: 16px;
+        }
+
+        .stepone-title {
+          font-size: 1.125rem; /* text-lg */
+          font-weight: 600;
+        }
+
+        .stepone-cost {
+          font-size: 0.875rem; /* text-sm */
+        }
+
+        .stepone-close-button {
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+          color: #333;
+        }
+
+        .stepone-image-section {
+          display: flex;
+          flex-direction: column;
+          gap: 16px; /* space-y-4 */
+        }
+
+        .stepone-product-image {
+          width: 100%;
+          height: 200px; /* Adjust height as needed */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #ccc;
+          background-color: #f0f0f0;
+          text-align: center;
+          padding: 16px;
+        }
+
+        .stepone-placeholder-text {
+          text-align: center;
+        }
+
+        .stepone-thumbnails {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+
+        .stepone-thumbnails img {
+          width: 50px;
+          height: 50px;
+          border: 1px solid #ccc;
+        }
+
+        .stepone-scroll-button {
+          padding: 8px;
+          cursor: pointer;
+        }
+
+        .stepone-step-info {
+          margin-top: 16px;
+        }
+
+        .stepone-step {
+          font-size: 0.875rem; /* text-sm */
+        }
+
+        .stepone-description {
+          width: 100%;
+          border: 1px solid #ccc;
+          padding: 8px;
+          border-radius: 8px;
+          margin-top: 8px;
+          resize: none;
+          height: 100px; /* Adjust height as needed */
+        }
+
+        .stepone-navigation {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 1px;
+        }
+
+        .stepone-nav-button {
+          padding: 8px 16px;
+          border-radius: 8px;
+        }
+
+        .stepone-back-button {
+          background-color: #d1d5db; /* bg-zinc-300 */
+          color: black;
+        }
+
+        .stepone-next-button {
+          background-color: #3b82f6; /* bg-blue-500 */
+          color: white;
+        }
+
+        /* Responsive Styles */
+
+        @media (max-width: 768px) {
+          .stepone-container {
+            max-width: 95%;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .stepone-container {
+            max-width: 100%;
+          }
+
+          .stepone-title {
+            font-size: 1rem; /* Adjust font size for smaller screens */
+          }
+
+          .stepone-nav-button {
+            padding: 6px 12px; /* Adjust padding for smaller screens */
+          }
+        }
+
+        /* StepTwo.css */
+
+        .steptwo-overlay {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* background-color: rgba(5, 109, 255, 0.75);  */
+          max-width: 90%;
+          margin: auto;
+          /* padding: 16px; */
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+        }
+
+        .steptwo-container {
+          position: relative;
+          background-color: rgb(255, 255, 255);
+          color: black;
+          width: 100%;
+          max-width: 100%;
+          height: 100%;
+          /* padding: 16px; */
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+
+        .steptwo-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 8px;
+          margin-bottom: 16px;
+        }
+
+        .steptwo-title {
+          font-size: 1.125rem;
+          font-weight: 600;
+        }
+
+        .steptwo-cost {
+          font-size: 0.875rem;
+        }
+
+        .steptwo-close-button {
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+          color: #333;
+        }
+
+        .steptwo-content {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .steptwo-item {
+          width: 100%;
+        }
+
+        .steptwo-item-image {
+          width: 100%;
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #ccc;
+          background-color: #f0f0f0;
+          text-align: center;
+          padding: 16px;
+          position: relative;
+        }
+
+        .steptwo-placeholder-text {
+          text-align: center;
+        }
+
+        .steptwo-thumbnails {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          position: absolute;
+          bottom: 8px;
+        }
+
+        .steptwo-scroll-button {
+          width: 50px;
+          height: 50px;
+          background-color: transparent;
+          border: 1px solid #ccc;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .steptwo-step-info {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .steptwo-step {
+          font-size: 0.875rem;
+        }
+
+        .steptwo-description {
+          width: 100%;
+        }
+
+        .steptwo-description-textarea {
+          width: 100%;
+          border: 1px solid #ccc;
+          padding: 8px;
+          border-radius: 8px;
+        }
+
+        .steptwo-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 16px;
+        }
+
+        .steptwo-navigation {
+          display: flex;
+          gap: 8px;
+        }
+
+        .steptwo-nav-button {
+          padding: 8px 16px;
+          border-radius: 8px;
+        }
+
+        .steptwo-back-button {
+          background-color: #d1d5db;
+          color: black;
+        }
+
+        .steptwo-next-button {
+          background-color: #3b82f6;
+          color: white;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+          .steptwo-container {
+            max-width: 95%;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .steptwo-container {
+            max-width: 100%;
+          }
+
+          .steptwo-title {
+            font-size: 1rem;
+          }
+
+          .steptwo-nav-button {
+            padding: 6px 12px;
+          }
         }
       `}</style>
     </LayoutOne>
   );
 }
- 
+
 export default React.memo(ShopGrid3Column);
- 
