@@ -94,8 +94,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatCurrency } from "../../common/utils";
-import "../components/cssFiles/StepOne.css";
-import StepTwo from "../components/StepTwo.jsx";
+// import "../components/cssFiles/StepOne.css";
+// import "../components/cssFiles/StepTwo.css";
+// import "../components/cssFiles/StepThree.css";
+// import "../components/cssFiles/StepFour.css";
 // import Box from "@mui/material/Box";
 // import Stepper from "@mui/material/Stepper";
 // import Step from "@mui/material/Step";
@@ -234,10 +236,18 @@ function ShopGrid3Column() {
   const shopState = useSelector((state) => state.shopReducer);
   const shopFilterState = useSelector((state) => state.shopFilterReducer);
   const { sort, show, view, category, color, size, tag } = shopFilterState;
+  // const HtmlWebpackPlugin = require("html-webpack-plugin");
+  // const webpack = require("webpack"); //to access built-in plugins
 
-  useEffect(() => {
-    dispatch(fetchFeaturedProductsRequest({ limit: 4 }));
-  }, []);
+  // module.exports = {
+  //   module: {
+  //     rules: [{ test: /\.txt$/, use: "raw-loader" }],
+  //   },
+  //   plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  // };
+  // useEffect(() => {
+  //   dispatch(fetchFeaturedProductsRequest({ limit: 4 }));
+  // }, []);
 
   useEffect(() => {
     dispatch(
@@ -313,7 +323,7 @@ function ShopGrid3Column() {
   }));
 
   function getSteps() {
-    return ["Select campaign settings", "Create an ad group", "Create an ad"];
+    return ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"];
   }
 
   function getStepContent(step) {
@@ -324,15 +334,15 @@ function ShopGrid3Column() {
             <div className="stepone-container">
               <div className="stepone-header">
                 <h2 className="stepone-title">
-                  Select Carcass
-                  <br /> (Material, Thickness & Grade)
+                  Select Carcass (Material, Thickness & Grade)
+                  {/* <br /> (Material, Thickness & Grade) */}
                 </h2>
                 <span className="stepone-cost">
                   Real time Cost: <span id="real-time-cost">1,00,000</span>
                 </span>
-                <button className="stepone-close-button" onClick={handleClose}>
+                {/* <button className="stepone-close-button" onClick={handleClose}>
                   ✖
-                </button>
+                </button> */}
               </div>
               <div className="stepone-image-section">
                 <div className="stepone-product-image">
@@ -365,42 +375,55 @@ function ShopGrid3Column() {
         );
       case 1:
         return (
-          <div className="stepone-overlay">
-            <div className="stepone-container">
-              <div className="stepone-header">
-                <h2 className="stepone-title">
-                  Select Carcass
+          <div className="steptwo-overlay">
+            <div className="steptwo-container">
+              <div className="steptwo-header">
+                <h2 className="steptwo-title">
+                  Select Internal Laminate
                   <br /> (Material, Thickness & Grade)
                 </h2>
-                <span className="stepone-cost">
+                <span className="steptwo-cost">
                   Real time Cost: <span id="real-time-cost">1,00,000</span>
                 </span>
-                <button className="stepone-close-button" onClick={handleClose}>
+                {/* <button className="steptwo-close-button" onClick={handleClose}>
                   ✖
-                </button>
+                </button> */}
               </div>
-              <div className="stepone-image-section">
-                <div className="stepone-product-image">
-                  <span className="stepone-placeholder-text">
-                    Product Image 360D view
-                    <br />
-                    Select Product Carcass Option
-                  </span>
-                </div>
-                <div className="stepone-thumbnails">
-                  {[...Array(9)].map((_, index) => (
-                    <img
-                      key={index}
-                      src="https://placehold.co/50x50"
-                      alt="Thumb Image"
-                    />
-                  ))}
-                  <button className="stepone-scroll-button">{">"}</button>
+              <div className="steptwo-content">
+                <div className="steptwo-item">
+                  <div className="steptwo-item-image">
+                    <span className="steptwo-placeholder-text">
+                      Product Image 360D view
+                      <br />
+                      Select Product Internal Laminate Option
+                    </span>
+                  </div>
+                  <div className="steptwo-thumbnails">
+                    {[...Array(10)].map((_, index) => (
+                      <img
+                        key={index}
+                        src="https://placehold.co/50x50"
+                        alt="Thumb Image"
+                      />
+                    ))}
+                    <button className="steptwo-scroll-button">{">"}</button>
+                  </div>
                 </div>
               </div>
-              <div className="stepone-step-info">
+              <div className="steptwo-footer">
+                <div className="steptwo-step">Step 2 of 5</div>
+                <div className="steptwo-navigation">
+                  {/* <button className="steptwo-nav-button steptwo-back-button">
+                    Back
+                  </button>
+                  <button className="steptwo-nav-button steptwo-next-button">
+                    Next
+                  </button> */}
+                </div>
+              </div>
+              <div className="steptwo-description">
                 <textarea
-                  className="stepone-description"
+                  className="steptwo-description-textarea"
                   placeholder="Product Description"
                   readOnly
                 ></textarea>
@@ -410,90 +433,164 @@ function ShopGrid3Column() {
         );
       case 2:
         return (
-          <div className="stepone-overlay">
-            <div className="stepone-container">
-              <div className="stepone-header">
-                <h2 className="stepone-title">
-                  Select Carcass
-                  <br /> (Material, Thickness & Grade)
+          <div className="widget-overlay">
+            <div className="widget-container">
+              <div className="widget-header">
+                <h2 className="widget-title">
+                  Select Accessories
+                  <br />
+                  (Material, Thickness & Grade)
                 </h2>
-                <span className="stepone-cost">
-                  Real time Cost: <span id="real-time-cost">1,00,000</span>
-                </span>
-                <button className="stepone-close-button" onClick={handleClose}>
+                <span className="widget-cost">Real time Cost: 1,00,000</span>
+                {/* <button className="widget-close-button" onClick={handleClose}>
                   ✖
-                </button>
+                </button> */}
               </div>
-              <div className="stepone-image-section">
-                <div className="stepone-product-image">
-                  <span className="stepone-placeholder-text">
-                    Product Image 360D view
-                    <br />
-                    Select Product Carcass Option
-                  </span>
+              <div className="widget-content">
+                <div className="widget-item">
+                  <h3 className="widget-item-title">Drawer</h3>
+                  <div className="widget-item-container">
+                    <button className="widget-item-button">&lt;</button>
+                    <div className="widget-item-image">Drawer Image</div>
+                    <button className="widget-item-button">&gt;</button>
+                  </div>
                 </div>
-                <div className="stepone-thumbnails">
-                  {[...Array(9)].map((_, index) => (
-                    <img
-                      key={index}
-                      src="https://placehold.co/50x50"
-                      alt="Thumb Image"
-                    />
-                  ))}
-                  <button className="stepone-scroll-button">{">"}</button>
+                <div className="widget-item">
+                  <h3 className="widget-item-title">Hanging Rod</h3>
+                  <div className="widget-item-container">
+                    <button className="widget-item-button">&lt;</button>
+                    <div className="widget-item-image">Hanging Rod Image</div>
+                    <button className="widget-item-button">&gt;</button>
+                  </div>
                 </div>
               </div>
-              <div className="stepone-step-info">
+              <div className="widget-footer">
+                <span className="widget-step">Step 3 of 5</span>
+              </div>
+              <div className="widget-description">
+                <label
+                  htmlFor="product-description"
+                  className="widget-description-label"
+                >
+                  Product Description:
+                </label>
                 <textarea
-                  className="stepone-description"
-                  placeholder="Product Description"
-                  readOnly
+                  id="product-description"
+                  className="widget-description-textarea"
                 ></textarea>
               </div>
+              {/* <div className="widget-navigation">
+                <button className="widget-nav-button widget-back-button">
+                  Back
+                </button>
+                <button className="widget-nav-button widget-next-button">
+                  Next
+                </button>
+              </div> */}
             </div>
           </div>
         );
       case 3:
         return (
-          <div className="stepone-overlay">
-            <div className="stepone-container">
-              <div className="stepone-header">
-                <h2 className="stepone-title">
-                  Select Carcass
-                  <br /> (Material, Thickness & Grade)
+          <div className="stepfour-overlay">
+            <div className="stepfour-container">
+              <div className="stepfour-header">
+                <h2 className="stepfour-title">
+                  Select Shutter Design
+                  <br />
+                  (Material, Thickness & Grade)
                 </h2>
-                <span className="stepone-cost">
+                <span className="stepfour-cost">
                   Real time Cost: <span id="real-time-cost">1,00,000</span>
                 </span>
-                <button className="stepone-close-button" onClick={handleClose}>
+                {/* <button className="stepfour-close-button" onClick={handleClose}>
                   ✖
-                </button>
+                </button> */}
               </div>
-              <div className="stepone-image-section">
-                <div className="stepone-product-image">
-                  <span className="stepone-placeholder-text">
-                    Product Image 360D view
+              <div className="stepfour-content">
+                <div className="stepfour-item-image">
+                  <span className="stepfour-placeholder-text">
+                    Door Options Images
                     <br />
-                    Select Product Carcass Option
+                    {/* Select Product Carcass Option */}
                   </span>
                 </div>
-                <div className="stepone-thumbnails">
-                  {[...Array(9)].map((_, index) => (
+                <div className="stepfour-thumbnails">
+                  {[...Array(10)].map((_, index) => (
                     <img
                       key={index}
                       src="https://placehold.co/50x50"
                       alt="Thumb Image"
                     />
                   ))}
-                  <button className="stepone-scroll-button">{">"}</button>
+                  <button className="stepfour-scroll-button">{">"}</button>
                 </div>
               </div>
-              <div className="stepone-step-info">
+              <div className="stepfour-step-info">
+                <div className="stepfour-step">Step 4 of 5</div>
                 <textarea
-                  className="stepone-description"
+                  className="stepfour-description"
                   placeholder="Product Description"
                   readOnly
                 ></textarea>
+              </div>
+              <div className="stepfour-footer">
+                <div className="stepfour-navigation">
+                  {/* <button className="stepfour-nav-button stepfour-back-button">
+                    Back
+                  </button>
+                  <button className="stepfour-nav-button stepfour-next-button">
+                    Next
+                  </button> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 4:
+        return (
+          <div className="stepFive-overlay">
+            <div className="stepFive-container">
+              <div className="stepFive-header">
+                <div>
+                  <h2 className="stepFive-title">Review Your Product</h2>
+                  <p className="stepFive-subtitle">
+                    (Material, Thickness & Grade)
+                  </p>
+                </div>
+                <p className="stepFive-cost">Final Cost: 1,00,000</p>
+                {/* <button className="stepFive-closeButton" onClick={handleClose}>
+                  ✖
+                </button> */}
+              </div>
+              <div className="stepFive-imageSection">
+                <p className="stepFive-imageTitle">Final 3D Look</p>
+              </div>
+              <div className="stepFive-buttons">
+                <div className="stepFive-buttonGroup">
+                  <button className="stepFive-button">
+                    Closed Shutter View
+                  </button>
+                  <button className="stepFive-button">Internals</button>
+                  <button className="stepFive-button">Drawer</button>
+                  <button className="stepFive-button">Accessories</button>
+                </div>
+                <button className="stepFive-scrollButton">&gt;</button>
+              </div>
+              <div className="stepFive-stepInfo">
+                <p className="stepFive-step">Step 5 of 5</p>
+              </div>
+              <div className="stepFive-footer">
+                <div className="stepFive-descriptionSection">
+                  <p className="stepFive-descriptionLabel">
+                    Product Description:
+                  </p>
+                  <textarea className="stepFive-description" />
+                </div>
+                <button className="stepFive-placeOrderButton">
+                  Place Order
+                </button>
               </div>
             </div>
           </div>
@@ -687,6 +784,9 @@ function ShopGrid3Column() {
         </Modal>
       )}
       <style jsx>{`
+      `}</style>
+
+      <style jsx>{`
         .product {
           position: relative;
           overflow: hidden;
@@ -785,334 +885,7 @@ function ShopGrid3Column() {
 
         /* StepOne.css */
 
-        .stepone-overlay {
-          position: fixed;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          /* background-color: rgba(5, 109, 255, 0.75);  */
-          max-width: 90%;
-          margin: auto;
-          /* padding: 16px; */
-          background-color: white;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
-        }
-
-        .stepone-container {
-          /* position: relative; */
-          background-color: white;
-          color: black;
-          width: 100%;
-          max-width: 100%;
-          /* padding: 16px; */
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          overflow: hidden;
-        }
-
-        .stepone-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid #ccc;
-          padding-bottom: 8px;
-          margin-bottom: 16px;
-        }
-
-        .stepone-title {
-          font-size: 1.125rem; /* text-lg */
-          font-weight: 600;
-        }
-
-        .stepone-cost {
-          font-size: 0.875rem; /* text-sm */
-        }
-
-        .stepone-close-button {
-          background: none;
-          border: none;
-          font-size: 1.5rem;
-          cursor: pointer;
-          color: #333;
-        }
-
-        .stepone-image-section {
-          display: flex;
-          flex-direction: column;
-          gap: 16px; /* space-y-4 */
-        }
-
-        .stepone-product-image {
-          width: 100%;
-          height: 200px; /* Adjust height as needed */
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid #ccc;
-          background-color: #f0f0f0;
-          text-align: center;
-          padding: 16px;
-        }
-
-        .stepone-placeholder-text {
-          text-align: center;
-        }
-
-        .stepone-thumbnails {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-        }
-
-        .stepone-thumbnails img {
-          width: 50px;
-          height: 50px;
-          border: 1px solid #ccc;
-        }
-
-        .stepone-scroll-button {
-          padding: 8px;
-          cursor: pointer;
-        }
-
-        .stepone-step-info {
-          margin-top: 16px;
-        }
-
-        .stepone-step {
-          font-size: 0.875rem; /* text-sm */
-        }
-
-        .stepone-description {
-          width: 100%;
-          border: 1px solid #ccc;
-          padding: 8px;
-          border-radius: 8px;
-          margin-top: 8px;
-          resize: none;
-          height: 100px; /* Adjust height as needed */
-        }
-
-        .stepone-navigation {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: 1px;
-        }
-
-        .stepone-nav-button {
-          padding: 8px 16px;
-          border-radius: 8px;
-        }
-
-        .stepone-back-button {
-          background-color: #d1d5db; /* bg-zinc-300 */
-          color: black;
-        }
-
-        .stepone-next-button {
-          background-color: #3b82f6; /* bg-blue-500 */
-          color: white;
-        }
-
-        /* Responsive Styles */
-
-        @media (max-width: 768px) {
-          .stepone-container {
-            max-width: 95%;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .stepone-container {
-            max-width: 100%;
-          }
-
-          .stepone-title {
-            font-size: 1rem; /* Adjust font size for smaller screens */
-          }
-
-          .stepone-nav-button {
-            padding: 6px 12px; /* Adjust padding for smaller screens */
-          }
-        }
-
         /* StepTwo.css */
-
-        .steptwo-overlay {
-          position: fixed;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          /* background-color: rgba(5, 109, 255, 0.75);  */
-          max-width: 90%;
-          margin: auto;
-          /* padding: 16px; */
-          background-color: white;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
-        }
-
-        .steptwo-container {
-          position: relative;
-          background-color: rgb(255, 255, 255);
-          color: black;
-          width: 100%;
-          max-width: 100%;
-          height: 100%;
-          /* padding: 16px; */
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          overflow: hidden;
-        }
-
-        .steptwo-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid #ccc;
-          padding-bottom: 8px;
-          margin-bottom: 16px;
-        }
-
-        .steptwo-title {
-          font-size: 1.125rem;
-          font-weight: 600;
-        }
-
-        .steptwo-cost {
-          font-size: 0.875rem;
-        }
-
-        .steptwo-close-button {
-          background: none;
-          border: none;
-          font-size: 1.5rem;
-          cursor: pointer;
-          color: #333;
-        }
-
-        .steptwo-content {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .steptwo-item {
-          width: 100%;
-        }
-
-        .steptwo-item-image {
-          width: 100%;
-          height: 200px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid #ccc;
-          background-color: #f0f0f0;
-          text-align: center;
-          padding: 16px;
-          position: relative;
-        }
-
-        .steptwo-placeholder-text {
-          text-align: center;
-        }
-
-        .steptwo-thumbnails {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          position: absolute;
-          bottom: 8px;
-        }
-
-        .steptwo-scroll-button {
-          width: 50px;
-          height: 50px;
-          background-color: transparent;
-          border: 1px solid #ccc;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-        }
-
-        .steptwo-step-info {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .steptwo-step {
-          font-size: 0.875rem;
-        }
-
-        .steptwo-description {
-          width: 100%;
-        }
-
-        .steptwo-description-textarea {
-          width: 100%;
-          border: 1px solid #ccc;
-          padding: 8px;
-          border-radius: 8px;
-        }
-
-        .steptwo-footer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: 16px;
-        }
-
-        .steptwo-navigation {
-          display: flex;
-          gap: 8px;
-        }
-
-        .steptwo-nav-button {
-          padding: 8px 16px;
-          border-radius: 8px;
-        }
-
-        .steptwo-back-button {
-          background-color: #d1d5db;
-          color: black;
-        }
-
-        .steptwo-next-button {
-          background-color: #3b82f6;
-          color: white;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-          .steptwo-container {
-            max-width: 95%;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .steptwo-container {
-            max-width: 100%;
-          }
-
-          .steptwo-title {
-            font-size: 1rem;
-          }
-
-          .steptwo-nav-button {
-            padding: 6px 12px;
-          }
-        }
       `}</style>
     </LayoutOne>
   );
