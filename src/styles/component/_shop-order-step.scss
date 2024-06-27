@@ -194,3 +194,661 @@
   color: white;
 }
 
+.stepone-header{
+  // background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+}
+.stepone-cost {
+  font-size: 0.875rem;
+}
+
+// ................................................. STEP TWO CSS......................................
+
+// .steptwo-overlay { 
+//   position: fixed;
+//   inset: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   /* background-color: rgba(5, 109, 255, 0.75);  */
+//   // max-width: 90%;
+//   margin: auto;
+//   /* padding: 16px; */
+//   background-color: white;
+//   border: 1px solid #ccc;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+// }
+
+.steptwo-container {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  /* padding: 16px; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.steptwo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.steptwo-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.steptwo-cost {
+  font-size: 0.875rem;
+}
+
+.steptwo-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.steptwo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.steptwo-item {
+  width: 100%;
+}
+
+.steptwo-item-image {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 16px;
+  position: relative;
+}
+
+.steptwo-placeholder-text {
+  text-align: center;
+}
+
+.steptwo-thumbnails {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  bottom: 8px;
+}
+
+.steptwo-scroll-button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.steptwo-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.steptwo-step {
+  font-size: 0.875rem;
+}
+
+.steptwo-description {
+  width: 100%;
+}
+
+.steptwo-description-textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.steptwo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.steptwo-navigation {
+  display: flex;
+  gap: 8px;
+}
+
+.steptwo-nav-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.steptwo-back-button {
+  background-color: #d1d5db;
+  color: black;
+}
+
+.steptwo-next-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .steptwo-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .steptwo-container {
+    max-width: 100%;
+  }
+
+  .steptwo-title {
+    font-size: 1rem;
+  }
+
+  .steptwo-nav-button {
+    padding: 6px 12px;
+  }
+} 
+
+
+// ................................................. STEP THREE CSS......................................
+
+// .widget-overlay {
+//   position: fixed;
+//   inset: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   /* background-color: rgba(5, 109, 255, 0.75);  */
+//   max-width: 90%;
+//   margin: auto;
+//   /* padding: 16px; */
+//   background-color: white;
+//   border: 1px solid #ccc;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+// }
+
+.widget-container {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  /* padding: 16px; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.widget-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+}
+
+.widget-cost {
+  font-size: 0.875rem; /* text-sm */
+}
+
+.widget-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.widget-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* space-y-4 */
+}
+
+.widget-item {
+  width: 100%;
+}
+
+.widget-item-title {
+  font-weight: 600;
+}
+
+.widget-item-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.widget-item-button {
+  padding: 0 8px;
+}
+
+.widget-item-image {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.widget-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.widget-step {
+  font-size: 0.875rem; /* text-sm */
+}
+
+.widget-navigation {
+  display: flex;
+  gap: 8px; /* space-x-2 */
+}
+
+.widget-nav-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.widget-back-button {
+  background-color: #d1d5db; /* bg-zinc-300 */
+  color: black;
+}
+
+.widget-next-button {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: white;
+}
+
+.widget-description {
+  margin-top: 16px;
+}
+
+.widget-description-label {
+  display: block;
+  font-weight: 600;
+}
+
+.widget-description-textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .widget-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .widget-container {
+    max-width: 100%;
+  }
+
+  .widget-title {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .widget-nav-button {
+    padding: 6px 12px; /* Adjust padding for smaller screens */
+  }
+} 
+
+
+// ................................................. STEP FOUR CSS......................................
+
+
+// .stepfour-overlay {
+//   position: fixed;
+//   inset: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   /* background-color: rgba(5, 109, 255, 0.75);  */
+//   max-width: 90%;
+//   margin: auto;
+//   /* padding: 16px; */
+//   background-color: white;
+//   border: 1px solid #ccc;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+// }
+
+.stepfour-container {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  /* padding: 16px; */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;}
+
+.stepfour-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.stepfour-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.stepfour-cost {
+  font-size: 0.875rem;
+}
+
+.stepfour-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.stepfour-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* background-color: rebeccapurple; */
+}
+
+.stepfour-item-image {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 16px;
+}
+
+.stepfour-placeholder-text {
+  text-align: center;
+}
+
+.stepfour-thumbnails {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepfour-scroll-button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.stepfour-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stepfour-step {
+  font-size: 0.875rem;
+}
+
+.stepfour-description {
+  width: 100%;
+  /* height: 140%; */
+}
+
+.stepfour-description-textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.stepfour-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.stepfour-navigation {
+  display: flex;
+  gap: 8px;
+}
+
+.stepfour-nav-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.stepfour-back-button {
+  background-color: #d1d5db;
+  color: black;
+}
+
+.stepfour-next-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .stepfour-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepfour-container {
+    max-width: 100%;
+  }
+
+  .stepfour-title {
+    font-size: 1rem;
+  }
+
+  .stepfour-nav-button {
+    padding: 6px 12px;
+  }
+} 
+
+
+// ................................................. STEP FIVE CSS......................................
+
+// .stepFive-overlay {
+//   position: fixed;
+//   inset: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   max-width: 90%;
+//   margin: auto;
+//   background-color:white;
+//   border: 1px solid #ccc;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+// }
+
+.stepFive-container {
+  background-color:white;
+  color: black;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 16px;
+}
+
+
+.stepFive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.stepFive-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: black;
+}
+
+.stepFive-subtitle {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.stepFive-cost {
+  color: #555;
+}
+
+.stepFive-closeButton {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+
+.stepFive-imageSection {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.stepFive-imageTitle {
+  text-align: center;
+  margin-bottom: 16px;
+  color: black;
+}
+
+.stepFive-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.stepFive-buttonGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.stepFive-button {
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #eee;
+  color: black;
+  cursor: pointer;
+}
+
+.stepFive-scrollButton {
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: #eee;
+  color: black;
+  cursor: pointer;
+}
+
+.stepFive-stepInfo {
+  margin-bottom: 16px;
+}
+
+.stepFive-step {
+  color: #555;
+}
+
+.stepFive-footer {
+  border-top: 1px solid #ccc;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepFive-descriptionSection {
+  flex-grow: 1;
+  margin-right: 16px;
+}
+
+.stepFive-descriptionLabel {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.stepFive-description {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  resize: none;
+  color: black;
+}
+
+.stepFive-placeOrderButton {
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
